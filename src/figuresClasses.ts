@@ -11,7 +11,7 @@ export class Triangle implements Figure {
     public color: 'red' | 'green' | 'blue',
     private a: number,
     private b: number,
-    private c: number
+    private c: number,
   ) {
     if (a <= 0 || b <= 0 || c <= 0) {
       throw new Error('All sides must be greater than 0');
@@ -28,6 +28,7 @@ export class Triangle implements Figure {
   getArea(): number {
     const s = (this.a + this.b + this.c) / 2;
     const area = Math.sqrt(s * (s - this.a) * (s - this.b) * (s - this.c));
+
     return Math.floor(area * 100) / 100;
   }
 }
@@ -37,7 +38,7 @@ export class Circle implements Figure {
 
   constructor(
     public color: 'red' | 'green' | 'blue',
-    private radius: number
+    private radius: number,
   ) {
     if (radius <= 0) {
       throw new Error('Radius must be greater than 0');
@@ -46,6 +47,7 @@ export class Circle implements Figure {
 
   getArea(): number {
     const area = Math.PI * this.radius * this.radius;
+
     return Math.floor(area * 100) / 100;
   }
 }
@@ -56,7 +58,7 @@ export class Rectangle implements Figure {
   constructor(
     public color: 'red' | 'green' | 'blue',
     private width: number,
-    private height: number
+    private height: number,
   ) {
     if (width <= 0 || height <= 0) {
       throw new Error('Width and height must be greater than 0');
@@ -65,6 +67,7 @@ export class Rectangle implements Figure {
 
   getArea(): number {
     const area = this.width * this.height;
+
     return Math.floor(area * 100) / 100;
   }
 }
